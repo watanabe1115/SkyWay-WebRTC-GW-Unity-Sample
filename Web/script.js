@@ -74,10 +74,11 @@ function setupCallEventHandlers(call){
 }
 
 function addVideo(call,stream){
+	var video = $('#their-video')
 	if('srcObject' in video){
-		$('#their-video').get(0).srcObject = stream;
+		video.srcObject = stream;
 	}else{
-		$('#their-video').get(0).src = URL.createObjectURL(stream);
+		video.src = URL.createObjectURL(stream);
 	}
 }
 
