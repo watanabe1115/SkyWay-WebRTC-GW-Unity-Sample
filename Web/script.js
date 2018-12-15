@@ -74,7 +74,11 @@ function setupCallEventHandlers(call){
 }
 
 function addVideo(call,stream){
-    $('#their-video').get(0).srcObject = stream;
+	if('srcObject' in video){
+		$('#their-video').get(0).srcObject = stream;
+	}else{
+		$('#their-video').get(0).src = URL.createObjectURL(stream);
+	}
 }
 
 function removeVideo(peerId){
