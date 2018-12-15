@@ -74,7 +74,8 @@ function setupCallEventHandlers(call){
 }
 
 function addVideo(call,stream){
-	var video = $('#their-video')
+	$('#video-container').append('<video id="' + call.remoteId + '"></video>');
+	var video = $('#'+call.remoteId);
 	if('srcObject' in video){
 		video.srcObject = stream;
 	}else{
